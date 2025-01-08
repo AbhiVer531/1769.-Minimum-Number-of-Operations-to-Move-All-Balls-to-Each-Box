@@ -1,0 +1,13 @@
+class Solution:
+    def minOperations(self, boxes: str) -> List[int]:
+        ballIndex = []
+        ans = []
+        for i in range(len(boxes)):
+            if boxes[i] == '1':  
+                ballIndex.append(i)
+        for j in range(len(boxes)):
+            counter = 0
+            for k in ballIndex:
+                counter += abs(k - j)
+            ans.append(counter)
+        return ans
